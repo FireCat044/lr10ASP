@@ -1,0 +1,29 @@
+﻿@model ConsultationFormModel
+
+<form asp-action="Register" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="ConsultationDate"></label>
+        <input asp-for="ConsultationDate" type="date" />
+        <span asp-validation-for="ConsultationDate"></span>
+    </div>
+    <div>
+        <label asp-for="Product"></label>
+        <select asp-for="Product" asp-items="@(new SelectList(ViewBag.Products))"></select>
+        <span asp-validation-for="Product"></span>
+    </div>
+    <button type="submit">Зареєструватися</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
